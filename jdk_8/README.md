@@ -13,7 +13,7 @@ The following extra components and configurations has been applied to the Tomcat
 `sgrio/tomcat` provides several tagged images:
 
 * Default (Your best choice)
-  * `latest`: pointed to `server_jre_8_unlimited_v7.0.81`
+  * `latest`: pointed to `server_jre_8_unlimited_tomcat_7`
 
 * Tomcat 9
   Comming soon.
@@ -23,10 +23,10 @@ The following extra components and configurations has been applied to the Tomcat
 
 * Tomcat 7
   * Java 8
-    * `server_jre_8_unlimited_v7.0.81`: Tomcat EE version `7.0.81` with `Oracle Java SE Server Runtime Environment 8` and `JCE` patched
-    * `server_jre_8_v7.0.81`: Tomcat EE version `7.0.81` with `Oracle Java SE Server Runtime Environment 8`
-    * `jdk_8_unlimited_v7.0.81`: Tomcat EE version `7.0.81` with `Oracle Java SE Development Kit 8` and `JCE` patched
-    * `jdk_8_v7.0.81`: Tomcat EE version `7.0.81` with `Oracle Java SE Development Kit 8`
+    * `server_jre_8_unlimited_tomcat_7`: Tomcat EE version `7.0.81` with `Oracle Java SE Server Runtime Environment 8` and `JCE` patched
+    * `server_jre_8_tomcat_7`: Tomcat EE version `7.0.81` with `Oracle Java SE Server Runtime Environment 8`
+    * `jdk_8_unlimited_tomcat_7`: Tomcat EE version `7.0.81` with `Oracle Java SE Development Kit 8` and `JCE` patched
+    * `jdk_8_tomcat_7`: Tomcat EE version `7.0.81` with `Oracle Java SE Development Kit 8`
 
 ### Installation
 
