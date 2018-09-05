@@ -4,9 +4,8 @@ This repository contains **Dockerfile** of [Ubuntu](http://www.ubuntu.com/) for 
 
 The following extra components and configurations has been applied to the Tomcat server in these images to make it `production ready`:
   * Unecessary files(.exe, .bat, etc.) and default applications(like host manager) has been removed to reduce image size
-  * `APR` support, version `1.6.2`
-  * `TC Native` support, version `1.2.42`
-  * `Openssl`, version `1.0.2l`
+  * `APR` support, version `1.6.3`
+  * `TC Native` support, version `1.2.17`
 
 ### Docker Tags
 
@@ -23,11 +22,9 @@ The following extra components and configurations has been applied to the Tomcat
 
 * Tomcat 7
   * Java 8
-    * `latest_tomcat_7`: pointed to `server_jre_8_unlimited_tomcat_7`
-    * `server_jre_8_unlimited_tomcat_7`: Tomcat version `7.0.81` with `Oracle Java SE Server Runtime Environment 8` and `JCE` patched
-    * `server_jre_8_tomcat_7`: Tomcat version `7.0.81` with `Oracle Java SE Server Runtime Environment 8`
-    * `jdk_8_unlimited_tomcat_7`: Tomcat version `7.0.81` with `Oracle Java SE Development Kit 8` and `JCE` patched
-    * `jdk_8_tomcat_7`: Tomcat version `7.0.81` with `Oracle Java SE Development Kit 8`
+    * `v7_latest`: pointed to `v7_server_jre_8`
+    * `v7_server_jre_8`: Tomcat version `7.0.88` with `Oracle Java SE Server Runtime Environment 8`
+    * `v7_jdk_8`: Tomcat version `7.0.88` with `Oracle Java SE Development Kit 8`
 
 ### Installation
 
