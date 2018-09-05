@@ -12,7 +12,7 @@ The following extra components and configurations has been applied to the Tomcat
 `sgrio/tomcat` provides several tagged images:
 
 * Default (Your best choice)
-  * `latest`: pointed to `latest_tomcat_7`
+  * `latest`: pointed to `v7_latest`
 
 * Tomcat 9
   Comming soon.
