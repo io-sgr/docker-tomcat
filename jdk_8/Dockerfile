@@ -2,8 +2,8 @@ FROM sgrio/java-oracle:jdk_8
 MAINTAINER SgrAlpha <admin@mail.sgr.io>
 
 ENV DEBIAN_FRONTEND=noninteractive \
-    CATALINA_HOME=/opt/apache-tomcat \
-    PATH="${CATALINA_HOME}/bin:$PATH"
+    CATALINA_HOME="/opt/apache-tomcat" \
+    PATH="/opt/apache-tomcat/bin:$PATH"
 
 RUN TOMCAT_VERSION=7.0.88 && \
     APR_VERSION=1.6.3 && \
