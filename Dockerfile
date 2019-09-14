@@ -1,13 +1,13 @@
-FROM sgrio/java-oracle:jdk_8
-MAINTAINER SgrAlpha <admin@mail.sgr.io>
+FROM sgrio/java:server_jre_8_centos
+MAINTAINER SgrAlpha <admin@sgr.io>
 
 ENV DEBIAN_FRONTEND=noninteractive \
     CATALINA_HOME="/opt/apache-tomcat" \
     PATH="/opt/apache-tomcat/bin:$PATH"
 
-RUN TOMCAT_VERSION=7.0.88 && \
-    APR_VERSION=1.6.3 && \
-    TC_NATIVE_VERSION=1.2.17 && \
+RUN TOMCAT_VERSION=7.0.96 && \
+    APR_VERSION=1.7.0 && \
+    TC_NATIVE_VERSION=1.2.23 && \
     curl --silent --location --retry 3 \
         http://archive.apache.org/dist/tomcat/tomcat-7/v${TOMCAT_VERSION}/bin/apache-tomcat-${TOMCAT_VERSION}.tar.gz \
         | tar xz -C /tmp && \
@@ -22,13 +22,10 @@ RUN TOMCAT_VERSION=7.0.88 && \
         ${CATALINA_HOME}/temp/* \
         ${CATALINA_HOME}/webapps/* \
         ${CATALINA_HOME}/work/* && \
-    apt-get update && apt-get install \
+    yum update -y && yum install -y \
         gcc \
-        libc6-dev \
-        libssl-dev \
-        libfile-dircompare-perl \
         make \
-        -y --no-install-recommends && \
+        openssl-devel && \
     curl --silent --location --retry 3 \
         http://archive.apache.org/dist/apr/apr-${APR_VERSION}.tar.gz \
         | tar xz -C /tmp && \
@@ -45,14 +42,12 @@ RUN TOMCAT_VERSION=7.0.88 && \
         make clean && make && make install && \
     ln -s /usr/local/apr/lib/libtcnative-1.so.0 /usr/lib/libtcnative-1.so.0 && \
     ln -s /usr/local/apr/lib/libtcnative-1.so /usr/lib/libtcnative-1.so && \
-    apt-get remove --purge --auto-remove -y \
+    yum remove -y \
         gcc \
-        libc6-dev \
-        libssl-dev \
-        libfile-dircompare-perl \
-        make && \
-    apt-get autoclean && apt-get --purge -y autoremove && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+        make \
+        openssl-devel && \
+    yum autoremove -y && yum clean all && \
+    rm -rf /var/cache/yum /tmp/* /var/tmp/*
 
 EXPOSE 8005 8080 8009 8443 45564 4000
 
