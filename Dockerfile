@@ -1,13 +1,19 @@
-FROM sgrio/java:server_jre_8_centos
+FROM centos:7
 MAINTAINER SgrAlpha <admin@sgr.io>
 
 ENV DEBIAN_FRONTEND=noninteractive \
+    JAVA_HOME="/usr/lib/jvm/java" \
     CATALINA_HOME="/opt/apache-tomcat" \
     PATH="/opt/apache-tomcat/bin:$PATH"
+
+EXPOSE 8005 8080 8009 8443 45564 4000
 
 RUN TOMCAT_VERSION=7.0.96 && \
     APR_VERSION=1.7.0 && \
     TC_NATIVE_VERSION=1.2.23 && \
+    yum update -y && \
+    yum install -y \
+        java-1.8.0-openjdk-devel && \
     curl --silent --location --retry 3 \
         http://archive.apache.org/dist/tomcat/tomcat-7/v${TOMCAT_VERSION}/bin/apache-tomcat-${TOMCAT_VERSION}.tar.gz \
         | tar xz -C /tmp && \
@@ -22,7 +28,7 @@ RUN TOMCAT_VERSION=7.0.96 && \
         ${CATALINA_HOME}/temp/* \
         ${CATALINA_HOME}/webapps/* \
         ${CATALINA_HOME}/work/* && \
-    yum update -y && yum install -y \
+    yum install -y \
         gcc \
         make \
         openssl-devel && \
@@ -48,8 +54,6 @@ RUN TOMCAT_VERSION=7.0.96 && \
         openssl-devel && \
     yum autoremove -y && yum clean all && \
     rm -rf /var/cache/yum /tmp/* /var/tmp/*
-
-EXPOSE 8005 8080 8009 8443 45564 4000
 
 WORKDIR ${CATALINA_HOME}
 
