@@ -12,7 +12,7 @@ The following extra components and configurations has been applied to the Tomcat
 `sgrio/tomcat` provides several tagged images:
 
 * Default (Your best choice)
-  * `latest`: pointed to `v7_latest`
+  * `latest`: pointed to `7.0.96-jdk-centos7`
 
 * Tomcat 9
   Comming soon.
@@ -21,10 +21,8 @@ The following extra components and configurations has been applied to the Tomcat
   Comming soon.
 
 * Tomcat 7
-  * Latest
-    * `v7_latest`: pointed to `v7_jre8`
   * Java 8
-    * `v7_jre8`: Tomcat version `7.0.96` with `Oracle Java SE Server Runtime Environment 8`
+    * `7.0.96-jdk-centos7`: Tomcat version `7.0.96` with `OpenJDK 8`
 
 ### Installation
 
