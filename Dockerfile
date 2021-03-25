@@ -8,14 +8,14 @@ ENV DEBIAN_FRONTEND=noninteractive \
 
 EXPOSE 8005 8080 8009 8443 45564 4000
 
-RUN TOMCAT_VERSION=7.0.96 && \
+RUN TOMCAT_VERSION=8.5.64 && \
     APR_VERSION=1.7.0 && \
     TC_NATIVE_VERSION=1.2.23 && \
     yum update -y && \
     yum install -y \
         java-1.8.0-openjdk-devel && \
     curl --silent --location --retry 3 \
-        http://archive.apache.org/dist/tomcat/tomcat-7/v${TOMCAT_VERSION}/bin/apache-tomcat-${TOMCAT_VERSION}.tar.gz \
+        http://archive.apache.org/dist/tomcat/tomcat-8/v${TOMCAT_VERSION}/bin/apache-tomcat-${TOMCAT_VERSION}.tar.gz \
         | tar xz -C /tmp && \
     mv /tmp/apache-tomcat-${TOMCAT_VERSION} /opt/apache-tomcat-${TOMCAT_VERSION} && \
     ln -s /opt/apache-tomcat-${TOMCAT_VERSION} ${CATALINA_HOME} && \
